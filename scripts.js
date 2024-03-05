@@ -50,7 +50,7 @@ function playRound(playerSelection, computerSelection) {
     }
     else if (playerSelection !== 'Rock', 'Paper', 'Scissors') {
         alert('Invalid input, you must choose between: Rock, paper or scissors!');
-        console.log('Invalid input, you must choose between: Rock, paper or scissors!')
+        console.log('Invalid input, you must choose between: Rock, paper or scissors!');
         console.log('----------------------------------');
         console.log(playRound(playerSelection, computerSelection));
     }
@@ -59,10 +59,10 @@ function playRound(playerSelection, computerSelection) {
 // Loop playRound 5 times and determine the winner
 function playGame() {
     for (let rounds = 0; rounds < 5; rounds++) {
-        playRound(playerSelection, computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
         console.log('Your score: ' + playerScore);
         console.log('Computer score: ' + computerScore);
-        console.log('----------------------------------')
+        console.log('----------------------------------');
     }
     if (playerScore > computerScore) {
         console.log('You win with a score of ' + playerScore + ' and the computer had: ' + computerScore);
