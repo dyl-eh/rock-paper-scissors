@@ -66,6 +66,9 @@ function playGame() {
     else if (computerScore > playerScore) {
         console.log('You lose! ' + 'The computers score was ' + computerScore + ' and you had ' + playerScore);
     }
+    else {
+        console.log('Its a tie! With an equal score of ' + playerScore + ' to ' + computerScore);
+    }
 }
 
 playGame();
