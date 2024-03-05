@@ -1,11 +1,11 @@
 // Define rock, paper & scissors
-rock = 'Rock' ;
-paper = 'Paper';
-scissors = "Scissors";
+const rock = 'Rock' ;
+const paper = 'Paper';
+const scissors = "Scissors";
 
 // Define player selection and computer selection
-let playerSelection = '';
-const computerSelection = '';
+let playerSelection = null;
+const computerSelection = null;
 
 // Define scores
 let playerScore = 0;
@@ -24,38 +24,42 @@ function playRound(playerSelection, computerSelection) {
     console.log('You: ' + playerSelection);
     computerSelection = getComputerChoice(rock, paper, scissors);
     console.log('Computer: ' + computerSelection);
-    if (playerSelection == 'Rock') {
-        if (computerSelection == 'Scissors')
+    if (playerSelection === 'Rock') {
+        if (computerSelection === 'Scissors')
             return playerScore++, 'Result: You win! ' + playerSelection + ' beats ' + computerSelection;
-        else if (computerSelection == 'Paper')
+        else if (computerSelection === 'Paper')
             return computerScore++, 'Result: You lose... ' + computerSelection + ' beats ' + playerSelection;
         else
             return 'Result: Tie game!';
     }
-    else if (playerSelection == 'Paper') {
-        if (computerSelection == 'Rock')
+    else if (playerSelection === 'Paper') {
+        if (computerSelection === 'Rock')
             return playerScore++, 'Result: You win! ' + playerSelection + ' beats ' + computerSelection;
-        else if (computerSelection == 'Scissors')
+        else if (computerSelection === 'Scissors')
             return computerScore++, 'Result: You lose... ' + computerSelection + ' beats ' + playerSelection;
         else
             return 'Result: Tie game!';
     }
-    else if (playerSelection == 'Scissors') {
-        if (computerSelection == 'Paper')
+    else if (playerSelection === 'Scissors') {
+        if (computerSelection === 'Paper')
             return playerScore++, 'Result: You win! ' + playerSelection + ' beats ' + computerSelection;
-        else if (computerSelection == 'Rock')
+        else if (computerSelection === 'Rock')
             return computerScore++, 'Result: You lose... ' + computerSelection + ' beats ' + playerSelection;
         else
             return 'Result: Tie game!';
     }
-    else
-        return alert('Invalid input! Please choose between rock, paper or scissors.');
+    else if (playerSelection !== 'Rock', 'Paper', 'Scissors') {
+        alert('Invalid input, you must choose between: Rock, paper or scissors!');
+        console.log('Invalid input, you must choose between: Rock, paper or scissors!')
+        console.log('----------------------------------');
+        playRound(playerSelection, computerSelection);
+    }
 }
 
 // Loop playRound 5 times and determine the winner
 function playGame() {
     for (let rounds = 0; rounds < 5; rounds++) {
-        console.log(playRound(playerSelection, computerSelection));
+        playRound(playerSelection, computerSelection);
         console.log('Your score: ' + playerScore);
         console.log('Computer score: ' + computerScore);
         console.log('----------------------------------')
@@ -66,7 +70,7 @@ function playGame() {
     else if (computerScore > playerScore) {
         console.log('You lose! ' + 'The computers score was ' + computerScore + ' and you had ' + playerScore);
     }
-    else {
+    else if (playerScore === computerScore) {
         console.log('Its a tie! With an equal score of ' + playerScore + ' to ' + computerScore);
     }
 }
