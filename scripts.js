@@ -52,7 +52,7 @@ function playRound(playerSelection, computerSelection) {
         alert('Invalid input, you must choose between: Rock, paper or scissors!');
         console.log('Invalid input, you must choose between: Rock, paper or scissors!')
         console.log('----------------------------------');
-        playRound(playerSelection, computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
     }
 }
 
